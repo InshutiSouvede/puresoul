@@ -8,12 +8,11 @@ interface ProfileCardProps {
     createdAt: string
     gender: string
     description?: string,
-    children?: React.ReactNode
 }
-export default function ProfileCard({ name, email, createdAt,gender,children}: ProfileCardProps) {
+export default function ProfileCard({ name, email, createdAt,gender,description}: ProfileCardProps) {
   return (
-    <div>
-            <figure className="flex flex-row w-full gap-4 md:gap-8 border-2 border-gray-400 py-8 rounded-lg shadow-2xl justify-center">
+    <div className='flex flex-col w-full gap-4 border-2 border-gray-400 p-8 rounded-lg shadow-2xl justify-center'>
+            <figure className="flex flex-row gap-4 md:gap-8">
                 <img src={gender.toLowerCase()==="male"?boy:girl} className="w-24" alt="profile_image" />
                 <figcaption className='flex flex-col gap-4'>
                     <h1>Name {name}</h1>
@@ -21,7 +20,8 @@ export default function ProfileCard({ name, email, createdAt,gender,children}: P
                     <p>Joined On { createdAt.split('T')[0]}</p>
                 </figcaption>
             </figure>
-            {children}
+            <h1 className="font-semibold text-2xl">Fun Fact 💚</h1>
+      <p className="italic">{description || "Haven't found mine yet 😢"}</p>
     </div>
   )
 }

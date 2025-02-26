@@ -26,7 +26,7 @@ export default function Home() {
   if(error) return <h1>Oppd there was an Error</h1>
   return (
     <main className="lg:w-2/5 lg:mx-auto py-20 p-8 flex flex-col gap-12">
-      <h1>Welcome {data!.data.name}</h1>
+      <h1 className="text-teal-600 font-bold uppercase w-max">Welcome {data!.data.name} 🤗</h1>
       <ProfileCard {...data!.data}/>
     </main>
   )
