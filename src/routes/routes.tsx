@@ -9,13 +9,14 @@ import AppLayout from "../pages/Layouts/AppLayout";
 import AllProfiles from "../pages/AllProfiles";
 import UpdateProfile from "../pages/UpdateProfile";
 import UserContextProvider from "../context/UserContextProvider";
+import UnProtecteRoutesLayout from "../pages/Layouts/UnProtecteRoutesLayout";
 
 export enum RouteLinks {
   SPLASH = "/",
   LOGIN = "/auth",
   SIGNUP = "/auth/signup",
   UPDATE_PROFILE = "/profiles/update-mine",
-  ALL_PROFILES  = "/profiles",
+  ALL_PROFILES = "/profiles",
   HOME = "/home",
   NOT_FOUND = "*",
 }
@@ -25,26 +26,34 @@ export const routes = createBrowserRouter([
     path: "/",
     children: [
       {
-        index: true,
-        element: <Splash />,
-      },
-      {
-        path: "auth",
+        element: <UnProtecteRoutesLayout />,
         children: [
           {
             index: true,
-            element: <Login />,
+            element: <Splash />,
           },
           {
-            path: "signup",
-            element: <Signup />,
+            path: "auth",
+            children: [
+              {
+                index: true,
+                element: <Login />,
+              },
+              {
+                path: "signup",
+                element: <Signup />,
+              },
+            ],
           },
         ],
       },
+
       {
-        element: (<UserContextProvider>
-          <AppLayout />
-          </UserContextProvider>),
+        element: (
+          <UserContextProvider>
+            <AppLayout />
+          </UserContextProvider>
+        ),
         children: [
           {
             path: "home",
