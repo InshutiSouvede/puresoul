@@ -3,22 +3,19 @@ import Splash from "../pages/Splash";
 import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-import NewMonth from "../pages/NewMonth";
-import NewExpense from "../pages/expenses/NewExpense";
-import UpdateExpense from "../pages/expenses/UpdateExpense";
 import NotFound from "../pages/NotFound";
-import AllExpenses from "../pages/expenses/AllExpenses";
 import Home from "../pages/Home";
 import AppLayout from "../pages/Layouts/AppLayout";
+import AllProfiles from "../pages/AllProfiles";
+import UpdateProfile from "../pages/UpdateProfile";
+import UserContextProvider from "../context/UserContextProvider";
 
 export enum RouteLinks {
   SPLASH = "/",
   LOGIN = "/auth",
   SIGNUP = "/auth/signup",
-  NEW_MONTH = "/expenses/new-month",
-  NEW_EXPENSE = "/expenses/new",
-  UPDATE_EXPENSE = "/expenses/update/:id",
-  ALL_EXPENSES = "/expenses",
+  UPDATE_PROFILE = "/profiles/update-mine",
+  ALL_PROFILES  = "/profiles",
   HOME = "/home",
   NOT_FOUND = "*",
 }
@@ -45,30 +42,24 @@ export const routes = createBrowserRouter([
         ],
       },
       {
-        element: <AppLayout />,
+        element: (<UserContextProvider>
+          <AppLayout />
+          </UserContextProvider>),
         children: [
           {
             path: "home",
             element: <Home />,
           },
           {
-            path: "expenses",
+            path: "profiles",
             children: [
               {
                 index: true,
-                element: <AllExpenses />,
+                element: <AllProfiles />,
               },
               {
-                path: "new",
-                element: <NewExpense />,
-              },
-              {
-                path: "update/:id",
-                element: <UpdateExpense />,
-              },
-              {
-                path: "new-month",
-                element: <NewMonth />,
+                path: "update-mine",
+                element: <UpdateProfile />,
               },
             ],
           },

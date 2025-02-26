@@ -27,7 +27,7 @@ export enum ButtonBehavior {
   } & (ButtonVersion | LinkVersion)
   
   const sharedStyles =
-    'rounded-lg py-3 text-center font-inter text-sm font-bold w-full flex items-center justify-center'
+    'rounded-lg p-3 text-center font-inter text-sm font-bold w-full flex items-center justify-center'
   
   export default function Button(props: ButtonProps) {
     if (props.behavior === ButtonBehavior.BUTTON) {

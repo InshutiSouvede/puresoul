@@ -44,6 +44,14 @@ export default function Signup() {
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
         </div>
         <div className="flex flex-col">
+        <InputLabel id="gender" {...register('gender')}>Gender</InputLabel>
+        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+        </div>
+        <div className="flex flex-col">
+        <InputLabel id="description" {...register('description')}>Fan Fact</InputLabel>
+        {errors.description && <p className="text-red-500">{errors.description.message}</p>}
+        </div>
+        <div className="flex flex-col">
         <InputLabel type="password" id="password" {...register('password')}>Password</InputLabel>
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
         </div>
