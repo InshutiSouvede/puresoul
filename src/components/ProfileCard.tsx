@@ -15,8 +15,9 @@ export default function ProfileCard({ name, email, createdAt,gender,description}
             <figure className="flex flex-row gap-4 md:gap-8">
                 <img src={gender.toLowerCase()==="male"?boy:girl} className="w-24" alt="profile_image" />
                 <figcaption className='flex flex-col gap-4'>
-                    <h1>Name {name}</h1>
-                    <p>Email {email}</p>
+                    <h1 className='capitalize'>Name: {name}</h1>
+                    <p>Email: {email}</p>
+                    <p className='capitalize'>Gender: {gender}</p>
                     <p>Joined On { createdAt.split('T')[0]}</p>
                 </figcaption>
             </figure>

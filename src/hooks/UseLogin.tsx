@@ -1,13 +1,11 @@
 import axios from "axios";
-import { use, useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { API_URL } from "../utils/constants";
 import { LoginUserDto } from "../schemas/types";
-import { UserContext} from "../context/UserContextProvider";
 
 export default function useLogin() {
   const navigate = useNavigate();
-  const userContext = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   
   async function login(email: string, password: string) {
@@ -26,7 +24,7 @@ export default function useLogin() {
 
       localStorage.setItem("token", user.data.token);
       localStorage.setItem("userId", user.data.id);
-      userContext?.setCurrentUserId(user.data.id);
+      
       navigate("/home", { replace: true });
     } catch (error) {
       throw "Invalid username or password";

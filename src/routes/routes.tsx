@@ -8,7 +8,6 @@ import Home from "../pages/Home";
 import AppLayout from "../pages/Layouts/AppLayout";
 import AllProfiles from "../pages/AllProfiles";
 import UpdateProfile from "../pages/UpdateProfile";
-import UserContextProvider from "../context/UserContextProvider";
 import UnProtecteRoutesLayout from "../pages/Layouts/UnProtecteRoutesLayout";
 
 export enum RouteLinks {
@@ -49,11 +48,7 @@ export const routes = createBrowserRouter([
       },
 
       {
-        element: (
-          <UserContextProvider>
-            <AppLayout />
-          </UserContextProvider>
-        ),
+        element: <AppLayout />,
         children: [
           {
             path: "home",

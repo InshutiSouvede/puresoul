@@ -27,7 +27,7 @@ export default function UpdateProfile() {
       data
     })
       .then((res) => {
-        console.log(res)
+        console.log("update res",res)
         if(!res.data.data){
           throw 'Could not create user'
         }
