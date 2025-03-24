@@ -9,10 +9,12 @@ import AppLayout from "../pages/Layouts/AppLayout";
 import AllProfiles from "../pages/AllProfiles";
 import UpdateProfile from "../pages/UpdateProfile";
 import UnProtecteRoutesLayout from "../pages/Layouts/UnProtecteRoutesLayout";
+import AssessmentSelector from "../pages/AssessmentSelector";
 
 export enum RouteLinks {
   SPLASH = "/",
   LOGIN = "/auth",
+
   SIGNUP = "/auth/signup",
   UPDATE_PROFILE = "/profiles/update-mine",
   ALL_PROFILES = "/profiles",
@@ -41,6 +43,10 @@ export const routes = createBrowserRouter([
               {
                 path: "signup",
                 element: <Signup />,
+              },
+              {
+                path:"questions",
+                element: <AssessmentSelector/>
               },
             ],
           },

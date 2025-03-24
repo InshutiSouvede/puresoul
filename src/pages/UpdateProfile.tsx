@@ -14,9 +14,11 @@ import UseGetCurrentUser from "../hooks/UseGetCurrentUser"
 type UpdateUser = z.infer<typeof updateUserSchema>
 export default function UpdateProfile() {
   const currentUserId = getCurrentUserId()
+
   const [formChanged,setFormChanged] = useState(false)
 
   const [{data:currentUserInformation, loading: currentUserLoading}] = UseGetCurrentUser(currentUserId)
+  
   const [{loading},execute] = UseUpdateUser(currentUserId)
   const navigate = useNavigate()
   const{register, handleSubmit, formState:{errors,isValid}, getValues, } = useForm<UpdateUser>({mode:"onSubmit", resolver: zodResolver(updateUserSchema)})
