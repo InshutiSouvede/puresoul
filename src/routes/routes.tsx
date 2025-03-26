@@ -1,25 +1,23 @@
 import { createBrowserRouter } from "react-router";
-import Splash from "../pages/Splash";
 import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import AppLayout from "../pages/Layouts/AppLayout";
-import AllProfiles from "../pages/AllProfiles";
-import UpdateProfile from "../pages/UpdateProfile";
 import UnProtecteRoutesLayout from "../pages/Layouts/UnProtecteRoutesLayout";
 import AssessmentSelector from "../pages/AssessmentSelector";
+import PureSoulWelcomePage from "../pages/WelcomePage";
+import ProtecteRoutesLayout from "../pages/Layouts/ProtectedRouted";
 
 export enum RouteLinks {
-  SPLASH = "/",
   LOGIN = "/auth",
-
   SIGNUP = "/auth/signup",
   UPDATE_PROFILE = "/profiles/update-mine",
   ALL_PROFILES = "/profiles",
-  HOME = "/home",
+  HOME = "/",
   NOT_FOUND = "*",
+  ASSESSMENTS = "/assessments",
 }
 export const routes = createBrowserRouter([
   {
@@ -27,49 +25,40 @@ export const routes = createBrowserRouter([
     path: "/",
     children: [
       {
+        element: <AppLayout />,
+        children: [
+      {
         element: <UnProtecteRoutesLayout />,
         children: [
-          {
-            index: true,
-            element: <Splash />,
-          },
           {
             path: "auth",
             children: [
               {
-                index: true,
+                path: "login",
                 element: <Login />,
               },
               {
                 path: "signup",
                 element: <Signup />,
               },
-              {
-                path:"questions",
-                element: <AssessmentSelector/>
-              },
             ],
           },
         ],
       },
-
-      {
-        element: <AppLayout />,
-        children: [
           {
-            path: "home",
-            element: <Home />,
+            index: true,
+            element: <PureSoulWelcomePage />,
           },
           {
-            path: "profiles",
+            path: "assessments",
+            element: <AssessmentSelector />,
+          },
+          {
+            element: <ProtecteRoutesLayout />,
             children: [
               {
-                index: true,
-                element: <AllProfiles />,
-              },
-              {
-                path: "update-mine",
-                element: <UpdateProfile />,
+                path: "dashboard",
+                element: <Home />,
               },
             ],
           },

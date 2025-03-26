@@ -23,7 +23,7 @@ export default function Login() {
   }
   return (
     <main className="lg:w-2/5 lg:mx-auto py-20 p-8">
-      <h1 className="text-teal-600 font-bold w-max uppercase border-b-4">Login</h1>
+      <h1 className="text-purple-600 font-bold w-max uppercase border-b-4">Login</h1>
       <form className="flex flex-col gap-8 py-8" onSubmit={handleSubmit}>
         {submissionError && <p className="text-red-500">{submissionError}</p>}
         <InputLabel type="email"  required onChange={handleChange} id="email" name="email">Email</InputLabel>

@@ -32,7 +32,7 @@ export default function Signup() {
   }
   return (
     <main className="lg:w-2/5 lg:mx-auto py-20 p-8">
-      <h1 className="text-teal-600 font-bold uppercase border-b-4 w-max">Sign Up</h1>
+      <h1 className="text-purple-600 font-bold uppercase border-b-4 w-max">Sign Up</h1>
       <form className="flex flex-col gap-8 py-8" onSubmit={handleSubmit(handleSignup)}>
         {submitError && <p className="text-red-500">{submitError}</p>}
         <div className="flex flex-col">

@@ -7,8 +7,8 @@ export enum ButtonBehavior {
 }
   
   export enum ButtonStyles {
-    PRIMARY = 'bg-teal-600 text-yellow-50',
-    DISABLED = 'bg-gray-200 text-teal-600',
+    PRIMARY = 'bg-purple-600 text-yellow-50',
+    DISABLED = 'bg-gray-200 text-purple-600',
     DELETE = 'border-2 bg-red-600 text-red-50',
   }
   
