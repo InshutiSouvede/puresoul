@@ -11,7 +11,7 @@ import PureSoulWelcomePage from "../pages/WelcomePage";
 import ProtecteRoutesLayout from "../pages/Layouts/ProtectedRouted";
 
 export enum RouteLinks {
-  LOGIN = "/auth",
+  LOGIN = "/auth/login",
   SIGNUP = "/auth/signup",
   UPDATE_PROFILE = "/profiles/update-mine",
   ALL_PROFILES = "/profiles",
