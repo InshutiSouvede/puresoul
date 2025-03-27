@@ -6,7 +6,8 @@ export interface CreatedUserDto {
     name: string;
     gender: string;
     createdAt: string;
-    description?:string
+    phoneNumber?:string;
+    age: number;
   };
 }
 export interface LoginUserDto {

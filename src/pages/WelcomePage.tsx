@@ -1,23 +1,28 @@
 import React from "react";
 import { BookOpen, UserCircle2, CheckCircle2} from "lucide-react";
 import { Link } from "react-router";
+import ExpertsCard from "../components/ExpertsCard";
+import BooksCard from "../components/BooksCard";
 
 
 const PureSoulWelcomePage: React.FC = () => {
     const recommendedBooks = [
         {
+          id: "001",
           title: "The Mindful Way Through Depression",
           author: "Mark Williams",
           description: "A groundbreaking work combining mindfulness and cognitive therapy",
           image: "https://m.media-amazon.com/images/I/81aUQygpfoL._AC_UF350,350_QL50_.jpg"
         },
         {
+          id: "002",
           title: "Anxiety: Panicking about Panic",
           author: "Joshua Fletcher",
           description: "A compassionate guide to understanding and overcoming anxiety",
           image: "https://www.hachette.co.uk/wp-content/uploads/2019/04/hbg-title-9781529390803-17.jpg"
         },
         {
+          id: "003",
           title: "Feeling Good: The New Mood Therapy",
           author: "David D. Burns",
           description: "A classic approach to cognitive behavioral therapy",
@@ -27,18 +32,21 @@ const PureSoulWelcomePage: React.FC = () => {
 
   const psychologistProfiles = [
     {
+      id: 1,
       name: "Dr. Emily Rodriguez",
       specialty: "Cognitive Behavioral Therapy",
       expertise: "Anxiety and Depression Management",
       image: "https://photos.psychologytoday.com/e355f3cf-116c-4bd3-9d87-44942ea436c9/1/320x400.jpeg",
     },
     {
+      id: 2,
       name: "Dr. Michael Chen",
       specialty: "Mindfulness-Based Therapy",
       expertise: "Stress Reduction and Emotional Wellness",
       image: "https://ysm-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto:eco,dpr_3,w_650/v1/yms/prod/4618673d-52cd-44d5-bf10-fb2871f7352b",
     },
     {
+      id: 3,
       name: "Dr. Laura Anderson",
       specialty: "Trauma-Informed Care",
       expertise: "PTSD and Healing Support",
@@ -109,24 +117,8 @@ const PureSoulWelcomePage: React.FC = () => {
             Recommended Books
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {recommendedBooks.map((book, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-xl overflow-hidden flex items-center p-4 transform transition hover:scale-105"
-              >
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-24 h-36 object-cover mr-4 rounded-md"
-                />
-                <div>
-                  <h3 className="font-bold text-gray-800">{book.title}</h3>
-                  <p className="text-gray-600 text-sm">by {book.author}</p>
-                  <p className="text-gray-500 text-xs mt-1">
-                    {book.description}
-                  </p>
-                </div>
-              </div>
+            {recommendedBooks.map(book => (
+              <BooksCard key={book.id} {...book} />
             ))}
           </div>
         </div>
@@ -138,24 +130,8 @@ const PureSoulWelcomePage: React.FC = () => {
             Our Experts
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {psychologistProfiles.map((profile, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-xl overflow-hidden transform transition hover:scale-105"
-              >
-                <img
-                  src={profile.image}
-                  alt={profile.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="font-bold text-gray-800">{profile.name}</h3>
-                  <p className="text-gray-600 text-sm">{profile.specialty}</p>
-                  <p className="text-gray-500 text-xs mt-1">
-                    {profile.expertise}
-                  </p>
-                </div>
-              </div>
+            {psychologistProfiles.map(profile => (
+              <ExpertsCard key={profile.id} {...profile} />
             ))}
           </div>
         </div>
@@ -200,9 +176,6 @@ const PureSoulWelcomePage: React.FC = () => {
           </div>
      
       </div>
-      <footer className="text-center mt-12 text-gray-600">
-        <p>© 2025 PureSoul. Your Mental Health Matters.</p>
-      </footer>
     </div>
   );
 };

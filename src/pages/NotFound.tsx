@@ -1,5 +1,5 @@
 export default function NotFound() {
   return (
-    <div>NotFound Page</div>
+    <h2 className="text-2xl italic font-medium">NotFound Page</h2>
   )
 }

@@ -3,19 +3,22 @@ import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import NotFound from "../pages/NotFound";
-import Home from "../pages/Home";
 import AppLayout from "../pages/Layouts/AppLayout";
 import UnProtecteRoutesLayout from "../pages/Layouts/UnProtecteRoutesLayout";
 import AssessmentSelector from "../pages/AssessmentSelector";
 import PureSoulWelcomePage from "../pages/WelcomePage";
 import ProtecteRoutesLayout from "../pages/Layouts/ProtectedRouted";
+import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Profile";
 
 export enum RouteLinks {
   LOGIN = "/auth/login",
   SIGNUP = "/auth/signup",
+  PROFILE = "/profile",
+  HOME = "/",
+  DASHBOARD = "/dashboard",
   UPDATE_PROFILE = "/profiles/update-mine",
   ALL_PROFILES = "/profiles",
-  HOME = "/",
   NOT_FOUND = "*",
   ASSESSMENTS = "/assessments",
 }
@@ -58,7 +61,11 @@ export const routes = createBrowserRouter([
             children: [
               {
                 path: "dashboard",
-                element: <Home />,
+                element: <Dashboard />,
+              },
+              {
+                path: "profile",
+                element: <Profile />,
               },
             ],
           },

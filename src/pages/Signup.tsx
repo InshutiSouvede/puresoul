@@ -35,30 +35,42 @@ export default function Signup() {
       <h1 className="text-purple-600 font-bold uppercase border-b-4 w-max">Sign Up</h1>
       <form className="flex flex-col gap-8 py-8" onSubmit={handleSubmit(handleSignup)}>
         {submitError && <p className="text-red-500">{submitError}</p>}
+        
         <div className="flex flex-col">
         <InputLabel id="name" {...register('name')}>Name</InputLabel>
         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
+        
         <div className="flex flex-col">
         <InputLabel id="email" {...register('email')}>Email</InputLabel>
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
         </div>
+        
+        <div className="flex flex-col">
+        <InputLabel id="phoneNumber" {...register('phoneNumber')}>Phone Number</InputLabel>
+        {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.message}</p>}
+        </div>
+        
         <div className="flex flex-col">
         <InputLabel id="gender" {...register('gender')}>Gender</InputLabel>
         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
+        
         <div className="flex flex-col">
-        <InputLabel id="description" {...register('description')}>Fan Fact</InputLabel>
-        {errors.description && <p className="text-red-500">{errors.description.message}</p>}
+        <InputLabel id="age" {...register('age',{valueAsNumber: true})}>Age</InputLabel>
+        {errors.age && <p className="text-red-500">{errors.age.message}</p>}
         </div>
+        
         <div className="flex flex-col">
         <InputLabel type="password" id="password" {...register('password')}>Password</InputLabel>
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
         </div>
+        
         <div className="flex flex-col">
         <InputLabel type ="password" id="confirmPassword" {...register('confirmPassword')}>Confrim Password</InputLabel>
         {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
         </div>
+        
         <Button type="submit" behavior={ButtonBehavior.BUTTON} disabled={!isValid || loading} customStyles={isValid?ButtonStyles.PRIMARY:ButtonStyles.DISABLED}>{loading?"Loading...":"Submit"}</Button>
         <div className="flex gap-2">
           <p>Already have an account?</p> <Link className="text-blue-600 underline" to={RouteLinks.LOGIN}>Login</Link>

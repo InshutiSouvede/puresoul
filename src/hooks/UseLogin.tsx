@@ -25,9 +25,9 @@ export default function useLogin() {
       localStorage.setItem("token", user.data.token);
       localStorage.setItem("userId", user.data.id);
       
-      navigate("/home", { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch (error) {
-      throw "Invalid username or password";
+      throw error ||"Invalid username or password";
     } finally {
       setLoading(false);
     }

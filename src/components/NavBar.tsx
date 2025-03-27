@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Menu, User, X } from "lucide-react";
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { getAuthToken } from "../utils/auth";
@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           <NavLink
             end
             to="/"
-            className={({isActive}) => ` font-semibold ${isActive ? ' text-purple-800 border-b-2 border-purple-800' : 'text-gray-600 hover:text-purple-800 transition'}`}
+            className={({isActive}) => ` font-medium ${isActive ? ' text-purple-800 border-b-2 border-purple-800' : 'text-gray-600 hover:text-purple-800 transition'}`}
           >
             Home
           </NavLink>
@@ -43,20 +43,29 @@ const Navbar: React.FC<NavbarProps> = () => {
           <NavLink
             end
             to="/assessments"
-            className={({isActive})=>`hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
+            className={({isActive})=>`font-medium hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
           >
             Assessmentsss
           </NavLink>
 
           {/* Dashboard - only for logged-in users */}
           {isLoggedIn && (
+            <>
             <NavLink
               end
               to="/dashboard"
-              className={({isActive})=>`hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
-            >
+              className={({isActive})=>`font-medium hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
+              >
               Dashboard
             </NavLink>
+            <NavLink
+              end
+              to="/profile"
+              className={({isActive})=>`font-medium hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
+              >
+             <User size={24} />
+            </NavLink>
+            </>
           )}
 
           {/* Authentication Links */}
@@ -65,14 +74,14 @@ const Navbar: React.FC<NavbarProps> = () => {
               <NavLink
                 end
                 to="/auth/signup"
-                className={({isActive})=>`hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
+                className={({isActive})=>`font-medium hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
               >
                 Sign Up
               </NavLink>
               <NavLink
                 end
                 to="/auth/login"
-                className={({isActive})=>`hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
+                className={({isActive})=>`font-medium hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
               >
                 Login
               </NavLink>

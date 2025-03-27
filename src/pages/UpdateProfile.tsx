@@ -33,21 +33,20 @@ export default function UpdateProfile() {
         if(!res.data.data){
           throw 'Could not create user'
         }
-        navigate(RouteLinks.HOME,{state:true})
+        navigate(RouteLinks.DASHBOARD,{state:true})
         setSubmitError(null)
       })
       .catch(() => {
         setSubmitError("An error occurred. Please try again.")
       })
   }
+  console.log("current user info",currentUserInformation)
 
   const defaultValues = {
     name: currentUserInformation?.data.name,
-    email: currentUserInformation?.data.email,
+    age: currentUserInformation?.data.age,
     gender: currentUserInformation?.data.gender,
-    description: currentUserInformation?.data.description,
-    newPassword: "",
-    confirmNewPassword: ""
+    phoneNumber: currentUserInformation?.data.phoneNumber
   }
 
 
@@ -59,7 +58,7 @@ export default function UpdateProfile() {
   if(currentUserLoading) return <h1>Loading...</h1>
   return (
     <main className="lg:w-2/5 lg:mx-auto py-20 p-8">
-      <h1 className="text-teal-600 font-bold uppercase border-b-4 w-max">Update profile</h1>
+      <h1 className="text-purple-600 font-bold uppercase border-b-4 w-max">Update profile</h1>
       <form className="flex flex-col gap-8 py-8" onSubmit={handleSubmit(handleSignup)}>
         {submitError && <p className="text-red-500">{submitError}</p>}
         <div className="flex flex-col">
@@ -71,13 +70,6 @@ export default function UpdateProfile() {
         </div>
 
         <div className="flex flex-col">
-        <InputLabel id="email" {...register('email',{
-          onChange: () => checkFormChanged()
-        })} defaultValue={defaultValues.email}>Email</InputLabel>
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-        </div>
-
-        <div className="flex flex-col">
         <InputLabel id="gender" {...register('gender',{
           onChange: () => checkFormChanged()
         })} defaultValue={defaultValues.gender}>Gender</InputLabel>
@@ -85,15 +77,23 @@ export default function UpdateProfile() {
         </div>
 
         <div className="flex flex-col">
-        <InputLabel id="description" {...register('description',{
+        <InputLabel id="phoneNumber" {...register('phoneNumber',{
           onChange: () => checkFormChanged(),
           minLength:0
-        })} defaultValue={defaultValues.description}>My Fun Fact</InputLabel>
-        {errors.description && <p className="text-red-500">{errors.description.message}</p>}
+        })} defaultValue={defaultValues.phoneNumber}>Phone Number</InputLabel>
+        {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.message}</p>}
+        </div>
+
+        <div className="flex flex-col">
+        <InputLabel id="phoneNumber" {...register('age',{
+          onChange: () => checkFormChanged(),
+          valueAsNumber: true
+        })} defaultValue={defaultValues.age}>Age</InputLabel>
+        {errors.age && <p className="text-red-500">{errors.age.message}</p>}
         </div>
 
         <Button type="submit" behavior={ButtonBehavior.BUTTON} disabled={!isValid|| loading || !formChanged} customStyles={!isValid ||loading|| formChanged?ButtonStyles.PRIMARY:ButtonStyles.DISABLED}>{loading?"Loading...":"Submit"}</Button>
-        <Button behavior={ButtonBehavior.LINK} path={RouteLinks.HOME} customStyles={ButtonStyles.PRIMARY}>Cancel</Button>
+        <Button behavior={ButtonBehavior.LINK} path={RouteLinks.DASHBOARD} customStyles={ButtonStyles.PRIMARY}>Cancel</Button>
       </form>
     </main>
   )
