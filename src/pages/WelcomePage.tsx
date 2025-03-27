@@ -5,16 +5,20 @@ import ExpertsCard from "../components/ExpertsCard";
 import BooksCard from "../components/BooksCard";
 import UseGetAllBooks from "../hooks/UseGetAllBooks";
 import UseGetAllExperts from "../hooks/UseGetAllExperts";
+import { otherPsychologistProfiles, otherRecommendedBooks } from "../utils/data";
 
 
 const PureSoulWelcomePage: React.FC = () => {
   const [{data:booksData,error:recommendedBooksError, loading:booksLoading}] = UseGetAllBooks()
   const [{data:expertsData,error:psychologistProfilesError, loading: expertsLoading}] = UseGetAllExperts()
-  if(recommendedBooksError || psychologistProfilesError) return <h1>Opps there was an error! Our team will fix it soon</h1>
+  let recommendedBooks = booksData?.data
+  let psychologistProfiles = expertsData?.data
+  if(recommendedBooksError || psychologistProfilesError){
+    recommendedBooks = otherRecommendedBooks;
+    psychologistProfiles = otherPsychologistProfiles
+  }
   if(booksLoading || expertsLoading) return <h1>Loading...</h1>
   
-  const recommendedBooks = booksData?.data
-  const psychologistProfiles = expertsData?.data
    
 
   return (

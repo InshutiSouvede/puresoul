@@ -34,9 +34,8 @@ export interface AllBooksDTO {
     id: string
     title: string;
     author: string;
-    image: string;
-    createdAt: string;
     description:string
+    image:string
   }[];
 }
 export interface AllExpertsDTO {
@@ -46,7 +45,6 @@ export interface AllExpertsDTO {
     name: string;
     specialty: string;
     expertise: string;
-    createdAt: string;
     image:string
   }[];
 }

@@ -8,7 +8,7 @@ export const mockAssessmentResults: AssessmentResult[] = [
   { id: '5', type: 'depression', date: '2024-03-15', score: 25 },
   { id: '6', type: 'anxiety', date: '2024-03-20', score: 30 }
 ];
- export const recommendedBooks = [
+ export const otherRecommendedBooks = [
         {
           id: "001",
           title: "The Mindful Way Through Depression",
@@ -32,23 +32,23 @@ export const mockAssessmentResults: AssessmentResult[] = [
         }
       ];
 
-  export const psychologistProfiles = [
+  export const otherPsychologistProfiles = [
     {
-      id: 1,
+      id: "001",
       name: "Dr. Emily Rodriguez",
       specialty: "Cognitive Behavioral Therapy",
       expertise: "Anxiety and Depression Management",
       image: "https://photos.psychologytoday.com/e355f3cf-116c-4bd3-9d87-44942ea436c9/1/320x400.jpeg",
     },
     {
-      id: 2,
+      id: "002",
       name: "Dr. Michael Chen",
       specialty: "Mindfulness-Based Therapy",
       expertise: "Stress Reduction and Emotional Wellness",
       image: "https://ysm-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto:eco,dpr_3,w_650/v1/yms/prod/4618673d-52cd-44d5-bf10-fb2871f7352b",
     },
     {
-      id: 3,
+      id: "003",
       name: "Dr. Laura Anderson",
       specialty: "Trauma-Informed Care",
       expertise: "PTSD and Healing Support",
