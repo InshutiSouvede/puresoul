@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
     }));
   };
   const renderProgressChart = () => {
-    let chartData: any[] = [];
+    let chartData;
     let lines: React.ReactNode[] = [];
 
     switch (activeChart) {
@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
             stroke="#8B5CF6" 
             strokeWidth={3} 
             name="Depression Score"
-            filter={(d) => d.type === 'depression'}
+            filter={`${(d:{type: string}) => d.type === 'depression'}`}
           />,
           <Line 
             key="anxiety" 
@@ -73,21 +73,22 @@ const Dashboard: React.FC = () => {
             stroke="#6366F1" 
             strokeWidth={3} 
             name="Anxiety Score"
-            filter={(d) => d.type === 'anxiety'}
+            filter={`${(d:{type: string}) => d.type === 'anxiety'}`}
           />
         ];
         break;
     }
+    const optionsArray : ('both' | 'depression' | 'anxiety')[] = ['both', 'depression', 'anxiety']
 
     return (
       <div className="shadow-md rounded-lg p-6 mb-6">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-medium">Assessment Progress</h3>
           <div className="flex space-x-2">
-            {['both', 'depression', 'anxiety'].map((type) => (
+            {optionsArray.map((type) => (
               <button
                 key={type}
-                onClick={() => setActiveChart(type as any)}
+                onClick={() => setActiveChart(type)}
                 className={`px-3 py-1 rounded-full text-sm ${
                   activeChart === type 
                     ? 'bg-purple-600 text-white' 
