@@ -28,3 +28,25 @@ export interface AllUsersDTO {
     description?:string
   }[];
 }
+export interface AllBooksDTO {
+  success: boolean;
+  data: {
+    id: string
+    title: string;
+    author: string;
+    image: string;
+    createdAt: string;
+    description:string
+  }[];
+}
+export interface AllExpertsDTO {
+  success: boolean;
+  data: {
+    id: string
+    name: string;
+    specialty: string;
+    expertise: string;
+    createdAt: string;
+    image:string
+  }[];
+}

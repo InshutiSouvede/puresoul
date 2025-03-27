@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { mockAssessmentResults } from '../utils/data';
 
-interface AssessmentResult {
+export interface AssessmentResult {
   id: string;
   type: 'depression' | 'anxiety';
   date: string;
   score: number;
 }
 
-const mockAssessmentResults: AssessmentResult[] = [
-  { id: '1', type: 'depression', date: '2024-01-15', score: 45 },
-  { id: '2', type: 'depression', date: '2024-02-15', score: 35 },
-  { id: '3', type: 'anxiety', date: '2024-01-20', score: 55 },
-  { id: '4', type: 'anxiety', date: '2024-02-20', score: 40 },
-  { id: '5', type: 'depression', date: '2024-03-15', score: 25 },
-  { id: '6', type: 'anxiety', date: '2024-03-20', score: 30 }
-];
 
 const Dashboard: React.FC = () => {
   const [activeChart, setActiveChart] = useState<'depression' | 'anxiety' | 'both'>('both');

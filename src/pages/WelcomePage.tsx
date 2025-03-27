@@ -3,56 +3,19 @@ import { BookOpen, UserCircle2, CheckCircle2} from "lucide-react";
 import { Link } from "react-router";
 import ExpertsCard from "../components/ExpertsCard";
 import BooksCard from "../components/BooksCard";
+import UseGetAllBooks from "../hooks/UseGetAllBooks";
+import UseGetAllExperts from "../hooks/UseGetAllExperts";
 
 
 const PureSoulWelcomePage: React.FC = () => {
-    const recommendedBooks = [
-        {
-          id: "001",
-          title: "The Mindful Way Through Depression",
-          author: "Mark Williams",
-          description: "A groundbreaking work combining mindfulness and cognitive therapy",
-          image: "https://m.media-amazon.com/images/I/81aUQygpfoL._AC_UF350,350_QL50_.jpg"
-        },
-        {
-          id: "002",
-          title: "Anxiety: Panicking about Panic",
-          author: "Joshua Fletcher",
-          description: "A compassionate guide to understanding and overcoming anxiety",
-          image: "https://www.hachette.co.uk/wp-content/uploads/2019/04/hbg-title-9781529390803-17.jpg"
-        },
-        {
-          id: "003",
-          title: "Feeling Good: The New Mood Therapy",
-          author: "David D. Burns",
-          description: "A classic approach to cognitive behavioral therapy",
-          image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTdWDs-sK9Cy5d0VqW-Zv7_xXoeHf4OsdeyXQusxbgO4ns5j56S"
-        }
-      ];
-
-  const psychologistProfiles = [
-    {
-      id: 1,
-      name: "Dr. Emily Rodriguez",
-      specialty: "Cognitive Behavioral Therapy",
-      expertise: "Anxiety and Depression Management",
-      image: "https://photos.psychologytoday.com/e355f3cf-116c-4bd3-9d87-44942ea436c9/1/320x400.jpeg",
-    },
-    {
-      id: 2,
-      name: "Dr. Michael Chen",
-      specialty: "Mindfulness-Based Therapy",
-      expertise: "Stress Reduction and Emotional Wellness",
-      image: "https://ysm-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto:eco,dpr_3,w_650/v1/yms/prod/4618673d-52cd-44d5-bf10-fb2871f7352b",
-    },
-    {
-      id: 3,
-      name: "Dr. Laura Anderson",
-      specialty: "Trauma-Informed Care",
-      expertise: "PTSD and Healing Support",
-      image: "https://m.media-amazon.com/images/S/amzn-author-media-prod/cufib1qktnnqn45raibs660luc._SY600_.jpg",
-    },
-  ];
+  const [{data:booksData,error:recommendedBooksError, loading:booksLoading}] = UseGetAllBooks()
+  const [{data:expertsData,error:psychologistProfilesError, loading: expertsLoading}] = UseGetAllExperts()
+  if(recommendedBooksError || psychologistProfilesError) return <h1>Opps there was an error! Our team will fix it soon</h1>
+  if(booksLoading || expertsLoading) return <h1>Loading...</h1>
+  
+  const recommendedBooks = booksData?.data
+  const psychologistProfiles = expertsData?.data
+   
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100">
@@ -117,9 +80,10 @@ const PureSoulWelcomePage: React.FC = () => {
             Recommended Books
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {recommendedBooks.map(book => (
+            {recommendedBooks && recommendedBooks.map(book => (
               <BooksCard key={book.id} {...book} />
             ))}
+            {!recommendedBooks && <h1 className="capitalize">Recommendations are on way</h1>}
           </div>
         </div>
 
@@ -130,9 +94,10 @@ const PureSoulWelcomePage: React.FC = () => {
             Our Experts
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {psychologistProfiles.map(profile => (
+            {psychologistProfiles &&psychologistProfiles.map(profile => (
               <ExpertsCard key={profile.id} {...profile} />
             ))}
+            {!psychologistProfiles && <h1>Experts Will Join Us Soon</h1>}
           </div>
         </div>
       
