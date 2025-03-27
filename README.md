@@ -1,5 +1,5 @@
 # PureSoul App Frontend
-
+[View it here](https://puresoul-souvede-inshutis-projects.vercel.app/)
 ## Overview  
 **PureSoul** is a **mental health and digital well-being platform** that helps users access expert-recommended books, connect with mental health professionals, and engage in a supportive community. The frontend is built with **React, React Router, Tailwind CSS, and TypeScript** to ensure a smooth, responsive, and maintainable user experience.  
 
