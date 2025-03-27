@@ -1,50 +1,43 @@
-# React + TypeScript + Vite
+# PureSoul App Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview  
+**PureSoul** is a **mental health and digital well-being platform** that helps users access expert-recommended books, connect with mental health professionals, and engage in a supportive community. The frontend is built with **React, React Router, Tailwind CSS, and TypeScript** to ensure a smooth, responsive, and maintainable user experience.  
 
-Currently, two official plugins are available:
+## Key Features  
+- **User Authentication** – Secure signup, login, and profile management.  
+- **Book Recommendations** – Curated mental health book lists for users.  
+- **Expert Directory** – Browse mental health professionals for guidance.  
+- **Community Support** – Interactive features for user engagement.  
+- **Responsive Design** – Optimized UI across different devices.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used  
+- ⚛ **React** – Frontend framework for building UI components.  
+- 🌍 **React Router** – For seamless navigation between pages.  
+- 🎨 **Tailwind CSS** – Utility-first styling for rapid UI development.  
+- 🔐 **TypeScript** – Ensures type safety and better code maintainability.  
+- 🔗 **Axios** – Handles API requests and data fetching.  
 
-## Expanding the ESLint configuration
+## Getting Started  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Installation  
+1. **Clone the repository:**  
+   ```bash
+   git clone https://github.com/InshutiSouvede/puresoul.git
+2. **Navigate to the project directory:**  
+   ```bash
+   cd puresoul-frontend
 
-- Configure the top-level `parserOptions` property like this:
+3. **Install dependencies:**  
+   ```bash
+   npm install
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+4. **Set up your `.env` file with the necessary API configurations.**  
+   
+5. **Start development server**  
+   ```bash
+   npm run dev
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+6. **Open your browser and visit:**  
+   ```bash
+     http://localhost:5173
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
