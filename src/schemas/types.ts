@@ -10,11 +10,22 @@ export interface CreatedUserDto {
     age: number;
   };
 }
+export interface CreateBookDto{
+  sucess: boolean;
+  data: {
+    id: string;
+    author: string;
+    title: string;
+    image: string;
+    path?:string;
+  };
+}
 export interface LoginUserDto {
   sucess: boolean;
   data: {
     token: string;
     id: string;
+    role:"admin"|"user"|"expert";
   };
 }
 export interface AllUsersDTO {

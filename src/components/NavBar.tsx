@@ -1,15 +1,14 @@
 import { Menu, User, X } from "lucide-react";
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
-import { getAuthToken } from "../utils/auth";
+import { getAuthToken, getCurrentUserRole } from "../utils/auth";
 
-// Define the props interface for the Navbar
-interface NavbarProps {
-  isLoggedIn: boolean;
-}
+import { RouteLinks } from "../routes/routes";
 
-const Navbar: React.FC<NavbarProps> = () => {
+
+const Navbar: React.FC = () => {
   const isLoggedIn = getAuthToken();
+  const userRole = getCurrentUserRole();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleLogout = () => {
@@ -58,6 +57,24 @@ const Navbar: React.FC<NavbarProps> = () => {
               >
               Dashboard
             </NavLink>
+            {userRole === "expert" || userRole === "admin" && (
+              <NavLink
+              end
+              to={RouteLinks.NEW_BOOK}
+              className={({isActive})=>`font-medium hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
+              >
+              Add a Book
+            </NavLink>
+            )}
+            {userRole === "admin" && (
+              <NavLink
+              end
+              to={RouteLinks.NEW_EXPERT}
+              className={({isActive})=>`font-medium hover:text-purple-800 transition ${isActive? 'border-b-2 border-purple-800 text-purple-800':'text-gray-600'}`}
+              >
+              Add an expert
+            </NavLink>
+            )}
             <NavLink
               end
               to="/profile"

@@ -24,6 +24,7 @@ export default function useLogin() {
 
       localStorage.setItem("token", user.data.token);
       localStorage.setItem("userId", user.data.id);
+      localStorage.setItem("userRole",user.data.role)
       
       navigate("/dashboard", { replace: true });
     } catch (error) {

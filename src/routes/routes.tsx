@@ -10,6 +10,8 @@ import PureSoulWelcomePage from "../pages/WelcomePage";
 import ProtecteRoutesLayout from "../pages/Layouts/ProtectedRouted";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
+import NewBook from "../pages/NewBook";
+import NewExpert from "../pages/NewExpert";
 
 export enum RouteLinks {
   LOGIN = "/auth/login",
@@ -21,6 +23,8 @@ export enum RouteLinks {
   ALL_PROFILES = "/profiles",
   NOT_FOUND = "*",
   ASSESSMENTS = "/assessments",
+  NEW_BOOK = "/books/new",
+  NEW_EXPERT = "experts/new",
 }
 export const routes = createBrowserRouter([
   {
@@ -66,6 +70,14 @@ export const routes = createBrowserRouter([
               {
                 path: "profile",
                 element: <Profile />,
+              },
+              {
+                path: RouteLinks.NEW_BOOK,
+                element:<NewBook />
+              },
+              {
+                path: RouteLinks.NEW_EXPERT,
+                element:<NewExpert />
               },
             ],
           },

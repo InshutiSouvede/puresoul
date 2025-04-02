@@ -14,6 +14,7 @@ export const mockAssessmentResults: AssessmentResult[] = [
           title: "The Mindful Way Through Depression",
           author: "Mark Williams",
           description: "A groundbreaking work combining mindfulness and cognitive therapy",
+          path:"https://archive.org/details/TheMindfulWay/mode/2up",
           image: "https://m.media-amazon.com/images/I/81aUQygpfoL._AC_UF350,350_QL50_.jpg"
         },
         {
@@ -21,6 +22,7 @@ export const mockAssessmentResults: AssessmentResult[] = [
           title: "Anxiety: Panicking about Panic",
           author: "Joshua Fletcher",
           description: "A compassionate guide to understanding and overcoming anxiety",
+          path:"https://archive.org/details/isbn_9781500117924",
           image: "https://www.hachette.co.uk/wp-content/uploads/2019/04/hbg-title-9781529390803-17.jpg"
         },
         {
@@ -28,6 +30,7 @@ export const mockAssessmentResults: AssessmentResult[] = [
           title: "Feeling Good: The New Mood Therapy",
           author: "David D. Burns",
           description: "A classic approach to cognitive behavioral therapy",
+          path:"https://archive.org/details/feelinggoodnew1999burn",
           image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTdWDs-sK9Cy5d0VqW-Zv7_xXoeHf4OsdeyXQusxbgO4ns5j56S"
         }
       ];
