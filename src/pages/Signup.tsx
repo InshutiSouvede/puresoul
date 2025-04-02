@@ -53,7 +53,7 @@ export default function Signup() {
         
         <div className="flex flex-col">
         <InputLabel id="gender" {...register('gender')}>Gender</InputLabel>
-        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+        {errors.gender && <p className="text-red-500">{errors.gender.message}</p>}
         </div>
         
         <div className="flex flex-col">

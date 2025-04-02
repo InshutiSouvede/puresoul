@@ -20,6 +20,18 @@ export interface CreateBookDto{
     path?:string;
   };
 }
+
+export interface CreateExpertDto{
+  sucess: boolean;
+  data: {
+    id: string;
+    name: string;
+    email: string;
+    speciality: string;
+    expertise: string;
+    image?:string;
+  };
+}
 export interface LoginUserDto {
   sucess: boolean;
   data: {
@@ -45,8 +57,9 @@ export interface AllBooksDTO {
     id: string
     title: string;
     author: string;
-    description:string
-    image:string
+    description:string;
+    image:string;
+    path:string;
   }[];
 }
 export interface AllExpertsDTO {
@@ -56,6 +69,10 @@ export interface AllExpertsDTO {
     name: string;
     specialty: string;
     expertise: string;
-    image:string
+    image:string,
+    userId:{
+      id?:string,
+      email:string
+    }
   }[];
 }

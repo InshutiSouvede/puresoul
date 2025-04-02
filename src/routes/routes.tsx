@@ -20,7 +20,6 @@ export enum RouteLinks {
   HOME = "/",
   DASHBOARD = "/dashboard",
   UPDATE_PROFILE = "/profiles/update-mine",
-  ALL_PROFILES = "/profiles",
   NOT_FOUND = "*",
   ASSESSMENTS = "/assessments",
   NEW_BOOK = "/books/new",

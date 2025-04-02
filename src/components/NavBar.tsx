@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
     // Redirect to home page
     navigate("/");
   };
-
+console.log("userRole",userRole)
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
               >
               Dashboard
             </NavLink>
-            {userRole === "expert" || userRole === "admin" && (
+            {(userRole === "expert" || userRole === "admin") && (
               <NavLink
               end
               to={RouteLinks.NEW_BOOK}

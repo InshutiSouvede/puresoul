@@ -19,7 +19,7 @@ const PureSoulWelcomePage: React.FC = () => {
   }
   if(booksLoading || expertsLoading) return <h1>Loading...</h1>
   
-   
+   console.log("psychologists ", psychologistProfiles)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100">

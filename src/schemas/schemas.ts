@@ -56,11 +56,11 @@ const newBookSchema = z.object({
     .min(3, { message: "Must be at least 3 characters" }),
   image: z
     .string({ message: "Image link is required" })
-    .regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/[\w.-]*)*\/?(\?[^\s#]*)?(#[^\s]*)?$/,"Invalid link"),
+    .regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/[\w.,@?^=%&:/~+#-]*)?$/,"Invalid link"),
   path: z
     .string({ message: "Link to the book is required" })
     .min(3, { message: "Must be at least 3 characters" })
-    .regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/[\w.-]*)*\/?(\?[^\s#]*)?(#[^\s]*)?$/,"Invalid link"),
+    .regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/[\w.,@?^=%&:/~+#-]*)?$/,"Invalid link"),
   description: z
     .string({ message: "Book description is required" })
     .min(3, { message: "Must be at least 3 characters" }),
@@ -89,14 +89,14 @@ const newExpertSchema = z.object({
         "Password must contain a letter, a number, and a special character",
     }),
   specialty: z
-    .string({ message: "Title is required" })
+    .string({ message: "Speciality is required" })
     .min(3, { message: "Must be at least 3 characters" }),
   expertise: z
-    .string({ message: "Author name is required" })
+    .string({ message: "Expertise name is required" })
     .min(3, { message: "Must be at least 3 characters" }),
   image: z
     .string({ message: "Image link is required" })
     .min(3, { message: "Must be at least 3 characters" })
-    .regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/[\w.-]*)*\/?(\?[^\s#]*)?(#[^\s]*)?$/,"Invalid link"),
+    .regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/[\w.,@?^=%&:/~+#-]*)?$/,"Invalid link"),
 });
 export { SignupSchema, updateUserSchema, newBookSchema, newExpertSchema };
